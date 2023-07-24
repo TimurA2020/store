@@ -1,6 +1,9 @@
 package com.first.kotlin.project.store.entities
 
+import com.first.kotlin.project.store.dto.ItemDto
 import jakarta.persistence.*
+import lombok.Getter
+import lombok.Setter
 import java.math.BigDecimal
 
 @Entity
@@ -10,9 +13,18 @@ class Item (
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,
 
-    val title: String = "",
+    private val title: String = "",
 
-    val description: String = "",
+    private val description: String = "",
 
-    val price: Double = 0.0
-)
+    private val price: Double = 0.0
+) {
+
+    constructor(title: String, description: String, price: Double) : this(0, title, description, price)
+
+
+    fun toDto(): ItemDto {
+        return ItemDto(this.title, this.description, this.price)
+    }
+
+}
