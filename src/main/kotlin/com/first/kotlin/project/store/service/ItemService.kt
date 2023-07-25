@@ -13,7 +13,7 @@ class ItemService(
 
     fun getAllItems() :List<ItemDto> {
         val list: MutableList<ItemDto> = ArrayList()
-        itemRepo.findAll().forEach() { list.add(it.toDto()) }
+        itemRepo.findAll().forEach { list.add(it.toDto()) }
         return list
     }
 

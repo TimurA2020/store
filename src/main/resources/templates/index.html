@@ -78,11 +78,10 @@
             //selectors
             var projects = document.getElementById("projects");
 
-            htmlCode += "<table class='table'<thead><th scope=\"col\">#</th><th scope=\"col\">Id</th><th scope=\"col\">Title</th><th scope=\"col\">Description</th><th scope=\"col\">Price</th></thead>"
+            htmlCode += "<table class='table'<thead><th scope=\"col\">#</th><th scope=\"col\">Title</th><th scope=\"col\">Description</th><th scope=\"col\">Price</th></thead>"
 
             for (var i = 0; i < ticketList.length; i++) {
                 htmlCode += "<tbody> <tr><th scope=\"row\">" + (i+1) + "</th>";
-                htmlCode += "<td>" + ticketList[i]["id"] + "</td>";
                 htmlCode += "<td>" + ticketList[i]["title"] +  "</td>"
                 htmlCode += "<td>" + ticketList[i]["description"] + "</td>";
                 htmlCode += "<td>" + ticketList[i]["price"] + "</td>";
@@ -96,8 +95,6 @@
 
 
 
-    const addItemButton = document.getElementById("add-item-button");
-
     document.getElementById("add-item-button").addEventListener("click", function() {
         const title = document.getElementById("title").value;
         const description = document.getElementById("description").value;
@@ -105,9 +102,9 @@
         console.log(price)
         // Data to send in the request body
         const itemDto = {
-            "title": title,
-            "description": description,
-            "price": price
+            title: title,
+            description: description,
+            price: price
         };
 
         // Create a new XMLHttpRequest object
@@ -129,7 +126,6 @@
             }
         };
 
-        // Send the request with the data as a JSON string
         xhr.send(JSON.stringify(itemDto));
     });
 </script>
